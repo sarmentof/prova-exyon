@@ -1,0 +1,10 @@
+-- Comando para dar "reload" nos models após alteração nas tabelas
+Scaffold-DbContext -provider Microsoft.EntityFrameworkCore.SqlServer -Connection Name=MATRIZDB -o Models -UseDatabaseNames -force
+
+-- Código para possibilitar retorno JSON com Inner Join
+services.AddMvc(option => option.EnableEndpointRouting = false)
+		.SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+		.AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
+
+
